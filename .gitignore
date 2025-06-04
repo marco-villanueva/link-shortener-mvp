@@ -10,6 +10,7 @@ backend/dist/
 
 # Env files
 .env
+.env.production
 frontend/.env
 backend/.env
 

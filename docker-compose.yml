@@ -1,23 +1,33 @@
-# link-shortener-mvp/docker-compose.yml
-version: '3.8' # Especifica la versión de la sintaxis de Docker Compose
-
 services:
   backend:
-    build: ./backend         # Ruta al Dockerfile del backend
+    build:
+      context: ./backend
+    command: npm run dev
     ports:
-      - "3001:3001"         # Mapea puerto_host:puerto_contenedor
-    volumes:
-      - ./backend:/usr/src/app  # Monta el código local para desarrollo en caliente
-      - /usr/src/app/node_modules # No montes node_modules local para evitar conflictos
-    environment:
-      - NODE_ENV=development # Puedes añadir otras variables de entorno aquí
+      - "3001:3001"
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./backend/package.json
 
   frontend:
-    build: ./frontend        # Ruta al Dockerfile del frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    command: npm run dev -- --host
     ports:
-      - "8080:80"           # Mapea puerto 8080 de tu máquina al puerto 80 del contenedor nginx
-    volumes:
-      - ./frontend/src:/usr/src/app/src # Monta solo la carpeta src para hot-reloading si Vite lo soporta con nginx (puede requerir config adicional en Vite)
-                                        # Para producción, no necesitarías volumes aquí una vez construido
-    depends_on:
-      - backend             # Indica que el frontend depende del backend (controla orden de inicio)
+      - "5173:5173"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./frontend/package.json
