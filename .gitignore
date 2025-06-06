@@ -30,3 +30,7 @@ lerna-debug.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# SQLite
+*.db
+*.db-journal
