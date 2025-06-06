@@ -7,12 +7,15 @@ export const createShortLink = async (req, res) => {
     return res.status(400).json({ error: "URL original es requerida" });
   }
 
-  try {
-    const newLink = await shortenUrl(originalUrl);
+  const protocol = req.protocol;
+  const host = req.get("host");
 
-    const shortUrl = `${req.protocol}://${req.get("host")}/${
-      newLink.shortCode
-    }`;
+  try {
+    const shortUrl = await shortenUrl(originalUrl, {
+      protocol,
+      host,
+    });
+
     res.status(201).json({ shortUrl });
   } catch (error) {
     console.error({ error });
@@ -35,4 +38,4 @@ export const redirectToOriginalUrl = async (req, res) => {
     console.error({ error });
     res.status(500).send("Error en el servidor");
   }
-}
+};

@@ -1,9 +1,12 @@
 import * as repo from "../repositories/link.repository.js";
 import { generateShortCode } from "../utils/generateShortCode.js";
 
-export const shortenUrl = async (originalUrl) => {
+export const shortenUrl = async (originalUrl, { protocol, host }) => {
   const shortCode = generateShortCode();
-  return await repo.createLink(originalUrl, shortCode);
+  const newLink = await repo.createLink(originalUrl, shortCode);
+  const shortUrl = `${protocol}://${host}/${newLink.shortCode}`;
+
+  return shortUrl;
 };
 
 export const getOriginalUrl = async (shortCode) => {
