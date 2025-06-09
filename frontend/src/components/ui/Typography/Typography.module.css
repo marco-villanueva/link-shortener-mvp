@@ -1,0 +1,53 @@
+.typography {
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  color: #000000;
+  max-width: 700px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: #2f3949;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #374151;
+}
+
+.body {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111827;
+}
+
+.caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.75rem;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+
+  .body {
+    font-size: 1.125rem;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+}

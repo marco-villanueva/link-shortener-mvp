@@ -1,0 +1,39 @@
+.input {
+  background-color: #ffffff;
+  border: 0 solid #e5e7eb;
+  border: none;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  justify-items: center;
+  line-height: 1.75rem;
+  outline: none;
+  padding: 0.75rem 1.65rem;
+  position: relative;
+  touch-action: manipulation;
+  user-select: none;
+  width: 100%;
+  -webkit-user-select: none;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3dd1e7;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .input {
+    padding: 0.75rem 3rem;
+    font-size: 1.25rem;
+  }
+}

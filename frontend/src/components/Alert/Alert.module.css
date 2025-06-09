@@ -1,0 +1,31 @@
+.alert {
+  border-radius: 8px;
+  bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  margin: 1rem auto;
+  max-width: 480px;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+}
+
+.success {
+  background-color: #3DD1E7;
+  color: black;
+  border: 2px solid #059669;
+}
+
+.info {
+  background-color: #BFDBFE;
+  color: #1E3A8A;
+  border: 2px solid #3B82F6;
+}
+
+.warning {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 2px solid #F59E0B;
+}
